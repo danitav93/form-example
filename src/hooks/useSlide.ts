@@ -1,25 +1,45 @@
 import { useHistory, useLocation } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useCallback, useEffect } from 'react';
 import { getNextSlide, getPreviousSlide } from '../utils/routes';
 import { ROUTES } from '../constants/routes';
 
-export const useSlide = () => {
+export const useSlide = (enableLeftAndRight?: boolean) => {
   const history = useHistory();
   const location = useLocation();
 
   const currentPath = location.pathname;
 
-  useEffect(() => {
-    const handleKey = (event: KeyboardEvent) => {
+  const goToNextSlide = useCallback(() => {
+    history.push(getNextSlide(currentPath as ROUTES));
+  }, [currentPath, history]);
+  const goToPreviousSlide = useCallback(() => {
+    history.push(getPreviousSlide(currentPath as ROUTES));
+  }, [currentPath, history]);
+
+  const handleKey = useCallback(
+    (event: KeyboardEvent) => {
       if (event.key === 'ArrowLeft') {
-        history.push(getPreviousSlide(currentPath as ROUTES));
+        goToPreviousSlide();
       } else if (event.key === 'ArrowRight') {
-        history.push(getNextSlide(currentPath as ROUTES));
+        goToNextSlide();
+      }
+    },
+    [goToNextSlide, goToPreviousSlide],
+  );
+
+  useEffect(() => {
+    if (enableLeftAndRight) {
+      document.addEventListener('keydown', handleKey);
+    }
+    return () => {
+      if (enableLeftAndRight) {
+        document.removeEventListener('keydown', handleKey);
       }
     };
-    document.addEventListener('keydown', handleKey);
-    return () => {
-      document.removeEventListener('keydown', handleKey);
-    };
-  });
+  }, [currentPath, enableLeftAndRight, handleKey, history]);
+
+  return {
+    goToNextSlide,
+    goToPreviousSlide,
+  };
 };

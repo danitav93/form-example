@@ -13,7 +13,7 @@ const Container = styled.div`
 `;
 
 export function Slide({ children }: InferProps<typeof Slide.propTypes>) {
-  useSlide();
+  useSlide(true);
   return <Container>{children}</Container>;
 }
 
@@ -23,7 +23,7 @@ Slide.propTypes = {
 
 export const SlideTitle = styled.span`
   font-family: 'Helvetica Neue', sans-serif;
-  font-size: 170px;
+  font-size: 120px;
   font-weight: bold;
   letter-spacing: -1px;
   line-height: 1;
@@ -36,7 +36,7 @@ export const SlideList = styled.ul`
 
 export const SlideItem = styled.li`
   font-family: 'Helvetica Neue', sans-serif;
-  font-size: 80px;
+  font-size: 60px;
   font-weight: bold;
   letter-spacing: -1px;
   line-height: 1;

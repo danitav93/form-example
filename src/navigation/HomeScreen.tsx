@@ -1,8 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import styled from 'styled-components';
-import { useHistory } from 'react-router-dom';
-import { ROUTES } from '../constants/routes';
+import { useSlide } from '../hooks/useSlide';
 
 const FormContainer = styled.form`
   flex: 1;
@@ -44,16 +43,12 @@ type Inputs = {
 };
 
 export const HomeScreen = () => {
-  const history = useHistory();
-
   const { register, handleSubmit } = useForm<Inputs>();
 
-  const onSubmit = () => {
-    history.push(ROUTES.WHY);
-  };
+  const { goToNextSlide } = useSlide();
 
   return (
-    <FormContainer onSubmit={handleSubmit(onSubmit)}>
+    <FormContainer onSubmit={handleSubmit(goToNextSlide)}>
       <TitleContainer>
         <Title> Fight the form </Title>
         <Subtitle

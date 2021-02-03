@@ -1,7 +1,7 @@
 import React from 'react';
 import { SlideList, SlideTitle, SlideItem, Slide } from '../../components/ui/slide';
 
-export const WhatScreen = () => {
+export const IntroWhatScreen = () => {
   return (
     <Slide>
       <SlideTitle>What ?</SlideTitle>

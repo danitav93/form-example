@@ -3,10 +3,9 @@ import './App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import styled from 'styled-components';
 import { HomeScreen } from './navigation/HomeScreen';
-import { DesignFormRulesScreen } from './navigation/DesignPart/DesignFormRulesScreen';
-import { WhyScreen } from './navigation/intro/WhyScreen';
 import { ROUTES } from './constants/routes';
-import { WhatScreen } from './navigation/intro/WhatScreen';
+import { DesignSwitch } from './navigation/DesignPart/DesignSwitch';
+import { IntroSwitch } from './navigation/intro/IntroSwitch';
 
 const MainContainer = styled.div`
   display: flex;
@@ -21,14 +20,11 @@ function App() {
     <MainContainer>
       <Router>
         <Switch>
-          <Route path={ROUTES.DESIGN}>
-            <DesignFormRulesScreen />
+          <Route path="/design">
+            <DesignSwitch />
           </Route>
-          <Route path={ROUTES.WHAT}>
-            <WhatScreen />
-          </Route>
-          <Route path={ROUTES.WHY}>
-            <WhyScreen />
+          <Route path="/intro">
+            <IntroSwitch />
           </Route>
           <Route path={ROUTES.HOME}>
             <HomeScreen />
