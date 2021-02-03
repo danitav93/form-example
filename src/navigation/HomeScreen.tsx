@@ -2,38 +2,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import styled from 'styled-components';
 import { useHistory } from 'react-router-dom';
-
-type Inputs = {
-  exampleRequired: string;
-};
-
-export const HomeScreen = () => {
-  const history = useHistory();
-
-  const { register, handleSubmit } = useForm<Inputs>();
-
-  const onSubmit = (_data: Inputs) => {
-    history.push('/reasons');
-  };
-
-  return (
-    <FormContainer onSubmit={handleSubmit(onSubmit)}>
-      <TitleContainer>
-        <Title> Fight the form </Title>
-        <Subtitle
-          name="exampleRequired"
-          ref={register({
-            validate: (value) => !!value && value === 'yes',
-          })}
-          defaultValue={'and stay alive'}
-        />
-      </TitleContainer>
-      <button type="submit" className={'button'}>
-        Let&apos;s Go?
-      </button>
-    </FormContainer>
-  );
-};
+import { ROUTES } from '../constants/routes';
 
 const FormContainer = styled.form`
   flex: 1;
@@ -43,13 +12,13 @@ const FormContainer = styled.form`
   align-items: center;
 `;
 
-const TitleContainer = styled.form`
+const TitleContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 40px;
 `;
 
-const Title = styled.text`
+const Title = styled.span`
   font-family: 'Helvetica Neue', sans-serif;
   font-size: 170px;
   font-weight: bold;
@@ -69,3 +38,35 @@ const Subtitle = styled.input`
   outline: none !important;
   background: transparent;
 `;
+
+type Inputs = {
+  exampleRequired: string;
+};
+
+export const HomeScreen = () => {
+  const history = useHistory();
+
+  const { register, handleSubmit } = useForm<Inputs>();
+
+  const onSubmit = () => {
+    history.push(ROUTES.WHY);
+  };
+
+  return (
+    <FormContainer onSubmit={handleSubmit(onSubmit)}>
+      <TitleContainer>
+        <Title> Fight the form </Title>
+        <Subtitle
+          name="exampleRequired"
+          ref={register({
+            validate: (value) => !!value && value === 'yes',
+          })}
+          defaultValue="and stay alive"
+        />
+      </TitleContainer>
+      <button type="submit" className="button">
+        Let&apos;s Go?
+      </button>
+    </FormContainer>
+  );
+};

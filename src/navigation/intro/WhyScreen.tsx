@@ -1,9 +1,9 @@
 import React from 'react';
-import { SlideList, SlideTitle, SlideItem, Slide } from '../components/ui/slide';
+import { SlideList, SlideTitle, SlideItem, Slide } from '../../components/ui/slide';
 
-export const ReasonsScreen = () => {
+export const WhyScreen = () => {
   return (
-    <Slide nextRoute={'/design'} prevRoute={'/'}>
+    <Slide>
       <SlideTitle>Why ?</SlideTitle>
       <SlideList>
         <SlideItem>Forms are everywhere</SlideItem>

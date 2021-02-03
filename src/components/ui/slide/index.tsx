@@ -1,29 +1,27 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import PropTypes, { InferProps } from 'prop-types';
 import { useSlide } from '../../../hooks/useSlide';
 
-export function Slide({ prevRoute, nextRoute, children }: InferProps<typeof Slide.propTypes>) {
-  useSlide(prevRoute, nextRoute);
-  return <Container>{children}</Container>;
-}
-
-Slide.propTypes = {
-  nextRoute: PropTypes.string.isRequired,
-  prevRoute: PropTypes.string.isRequired,
-  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]).isRequired,
-};
-
 const Container = styled.div`
   flex: 1;
   display: grid;
-  grid-template-columns: max-content;
+  grid-template-columns: 1200px;
   place-content: center;
   align-items: start;
   grid-gap: 40px;
 `;
 
-export const SlideTitle = styled.text`
+export function Slide({ children }: InferProps<typeof Slide.propTypes>) {
+  useSlide();
+  return <Container>{children}</Container>;
+}
+
+Slide.propTypes = {
+  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]).isRequired,
+};
+
+export const SlideTitle = styled.span`
   font-family: 'Helvetica Neue', sans-serif;
   font-size: 170px;
   font-weight: bold;

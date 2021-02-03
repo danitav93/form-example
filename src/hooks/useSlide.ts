@@ -1,15 +1,20 @@
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
+import { getNextSlide, getPreviousSlide } from '../utils/routes';
+import { ROUTES } from '../constants/routes';
 
-export const useSlide = (prevRoute: string, nextRoute: string) => {
+export const useSlide = () => {
   const history = useHistory();
+  const location = useLocation();
+
+  const currentPath = location.pathname;
 
   useEffect(() => {
     const handleKey = (event: KeyboardEvent) => {
       if (event.key === 'ArrowLeft') {
-        history.push(prevRoute);
+        history.push(getPreviousSlide(currentPath as ROUTES));
       } else if (event.key === 'ArrowRight') {
-        history.push(nextRoute);
+        history.push(getNextSlide(currentPath as ROUTES));
       }
     };
     document.addEventListener('keydown', handleKey);
