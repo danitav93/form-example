@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { SlideItem, SlideList, SlideTitle } from '../../components/ui/slide';
-import optionalField from '../../img/optionalField.png';
+import dontSplitNumbers from '../../img/dontSplitNumbers.png';
 import { useSlide } from '../../hooks/useSlide';
 
 const Container = styled.div`
@@ -16,17 +16,17 @@ const StyledSlideTitle = styled(SlideTitle)`
   grid-column: 1 / -1;
 `;
 
-export const DesignOptionalFieldScreen = () => {
+export const DontSplitNumbersScreen = () => {
   useSlide(true);
   return (
     <Container>
-      <StyledSlideTitle>Optional fields</StyledSlideTitle>
+      <StyledSlideTitle>Don&apos;t split numbers</StyledSlideTitle>
       <SlideList>
-        <SlideItem>Clearly mark optional fields</SlideItem>
-        <SlideItem>fieldName(optional) is ok</SlideItem>
-        <SlideItem>*fieldName is less ok</SlideItem>
+        <SlideItem>
+          Can cause frustration for users who are looking at the keyboard while typing
+        </SlideItem>
       </SlideList>
-      <img src={optionalField} style={{ width: '100%' }} alt="NotFound" />
+      <img src={dontSplitNumbers} style={{ width: '100%' }} alt="NotFound" />
     </Container>
   );
 };

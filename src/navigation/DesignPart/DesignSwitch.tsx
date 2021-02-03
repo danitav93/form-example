@@ -4,6 +4,12 @@ import { ROUTES } from '../../constants/routes';
 import { DesignLandingScreen } from './DesignLandingScreen';
 import { DesignRulesArticleIntroScreen } from './DesignRulesArticleIntroScreen';
 import { DesignOptionalFieldScreen } from './DesignOptionalFieldsScreen';
+import { OneColumnScreen } from './OneColumnScreen';
+import { DesignArrangeListCheckBoxesVerticallyScreen } from './DesignArrangeListCheckBoxesVerticallyScreen';
+import { DontSplitNumbersScreen } from './DontSplitNumberIntoMultipleFieldsScreen';
+import { DesignWithoutMouseScreen } from './DesignWithoutMouseScreen';
+import { DesignPlaceholderScreen } from './DesignPlaceholderScreen';
+import { DesignInlineValidationScreen } from './DesignInlineValidationScreen';
 
 export const DesignSwitch = () => {
   return (
@@ -16,6 +22,24 @@ export const DesignSwitch = () => {
       </Route>
       <Route exact path={ROUTES.DESIGN_OPTIONAL_FIELD}>
         <DesignOptionalFieldScreen />
+      </Route>
+      <Route exact path={ROUTES.DESIGN_ONE_COLUMN}>
+        <OneColumnScreen />
+      </Route>
+      <Route exact path={ROUTES.DESIGN_ARRANGE_LIST_CHECK_BOXES_VERTICALLY}>
+        <DesignArrangeListCheckBoxesVerticallyScreen />
+      </Route>
+      <Route exact path={ROUTES.DESIGN_DONT_SPLIT_NUMBERS}>
+        <DontSplitNumbersScreen />
+      </Route>
+      <Route exact path={ROUTES.DESIGN_PLACEHOLDER}>
+        <DesignPlaceholderScreen />
+      </Route>
+      <Route exact path={ROUTES.DESIGN_WITHOUT_MOUSE}>
+        <DesignWithoutMouseScreen />
+      </Route>
+      <Route exact path={ROUTES.DESIGN_INLINE_VALIDATION}>
+        <DesignInlineValidationScreen />
       </Route>
     </Switch>
   );

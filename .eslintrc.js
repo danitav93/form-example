@@ -39,6 +39,6 @@ module.exports = {
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "import/prefer-default-export": "off",
-    "global-require": "off"
+    "global-require": "off",
   },
 };
