@@ -10,6 +10,8 @@ import { DontSplitNumbersScreen } from './DontSplitNumberIntoMultipleFieldsScree
 import { DesignWithoutMouseScreen } from './DesignWithoutMouseScreen';
 import { DesignPlaceholderScreen } from './DesignPlaceholderScreen';
 import { DesignInlineValidationScreen } from './DesignInlineValidationScreen';
+import { DesignSubmitButtonScreen } from './DesignSubmitButtonScreen';
+import { DesignButtonsLeftScreen } from './DesignButtonsLeftScreen';
 
 export const DesignSwitch = () => {
   return (
@@ -40,6 +42,12 @@ export const DesignSwitch = () => {
       </Route>
       <Route exact path={ROUTES.DESIGN_INLINE_VALIDATION}>
         <DesignInlineValidationScreen />
+      </Route>
+      <Route exact path={ROUTES.DESIGN_SUBMIT_BUTTON}>
+        <DesignSubmitButtonScreen />
+      </Route>
+      <Route exact path={ROUTES.DESIGN_BUTTONS_LEFT}>
+        <DesignButtonsLeftScreen />
       </Route>
     </Switch>
   );
