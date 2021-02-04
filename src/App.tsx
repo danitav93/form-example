@@ -6,6 +6,7 @@ import { HomeScreen } from './navigation/HomeScreen';
 import { ROUTES } from './constants/routes';
 import { DesignSwitch } from './navigation/DesignPart/DesignSwitch';
 import { IntroSwitch } from './navigation/intro/IntroSwitch';
+import { YupSwitch } from './navigation/YupPart/YupSwitch';
 
 const MainContainer = styled.div`
   display: flex;
@@ -20,6 +21,9 @@ function App() {
     <MainContainer>
       <Router>
         <Switch>
+          <Route path="/yup">
+            <YupSwitch />
+          </Route>
           <Route path="/design">
             <DesignSwitch />
           </Route>

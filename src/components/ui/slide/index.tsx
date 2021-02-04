@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes, { InferProps } from 'prop-types';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { synthwave84 } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { useSlide } from '../../../hooks/useSlide';
 
 const Container = styled.div`
@@ -41,4 +43,13 @@ export const SlideItem = styled.li`
   letter-spacing: -1px;
   line-height: 1;
   margin: 70px 0;
+`;
+
+export const SlideCode = styled(SyntaxHighlighter).attrs({
+  language: 'jsx',
+  style: synthwave84,
+})`
+  background-color: black;
+  padding: 20px;
+  border-radius: 10px;
 `;

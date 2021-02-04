@@ -11,6 +11,9 @@ export enum ROUTES {
   DESIGN_PLACEHOLDER = '/design/placeholder',
   DESIGN_WITHOUT_MOUSE = '/design/withoutMouse',
   DESIGN_INLINE_VALIDATION = '/design/inlineValidation',
+  YUP_LANDING = '/yup/landing',
+  YUP_TYPESCRIPT = '/yup/typescript',
+  YUP_TYPING_SCHEMAS = '/yup/typing',
 }
 
 export const ROUTES_MAP = Object.values(ROUTES);
