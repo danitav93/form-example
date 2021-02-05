@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 
 export const useMount = (name?: string) => {
   // eslint-disable-next-line no-console
-  console.log(`executing ${name}`);
+  console.log(`Rendering ${name}`);
   useEffect(() => {
     // eslint-disable-next-line no-console
     console.log(`Mounting ${name ?? ''}`);
