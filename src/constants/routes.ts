@@ -24,6 +24,9 @@ export enum ROUTES {
   FORM_STATE_WHEN_UNCONTROLLED = '/formState/whenUncontrolled',
   FORM_STATE_WHEN_CONTROLLED = '/formState/whenControlled',
   FORM_STATE_MANAGEMENT_LIBRARIES = '/formState/managementLibraries',
+  YUP_LANDING = '/yup/landing',
+  YUP_TYPESCRIPT = '/yup/typescript',
+  YUP_TYPING_SCHEMAS = '/yup/typing',
 }
 
 export const ROUTES_MAP = Object.values(ROUTES);

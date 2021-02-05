@@ -4,8 +4,9 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import styled from 'styled-components';
 import { HomeScreen } from './navigation/HomeScreen';
 import { ROUTES } from './constants/routes';
-import { DesignSwitch } from './navigation/DesignPart/DesignSwitch';
+import { DesignSwitch } from './navigation/Design/DesignSwitch';
 import { IntroSwitch } from './navigation/intro/IntroSwitch';
+import { YupSwitch } from './navigation/Yup/YupSwitch';
 import { FormStateSwitch } from './navigation/FormState/FormStateSwitch';
 import { ProgressBar } from './components/ui/ProgressBar';
 
@@ -22,6 +23,9 @@ function App() {
       <AppContainer>
         <ProgressBar />
         <Switch>
+          <Route path="/yup">
+            <YupSwitch />
+          </Route>
           <Route path="/formState">
             <FormStateSwitch />
           </Route>
