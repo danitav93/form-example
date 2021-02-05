@@ -4,7 +4,10 @@ import { useForm } from 'react-hook-form';
 import { SlideTitle } from '../../components/ui/slide';
 import { useSlide } from '../../hooks/useSlide';
 import { useMount } from '../../hooks/useMount';
-import { MemoizedColouredComponent } from '../../components/reactHookFormPerformances/ColouredComponent';
+import {
+  ColouredComponent,
+  MemoizedColouredComponent,
+} from '../../components/reactHookFormPerformances/ColouredComponent';
 
 const Container = styled.div`
   flex: 1;
@@ -73,8 +76,8 @@ export const FormStateReactHookFormPerformanceWithValuesScreen = () => {
           <input type="text" id="otherData" value={otherData} onChange={onOtherDataTextChange} />
         </label>
       </FormContainer>
-      <MemoizedColouredComponent color="red" text={redText} />
-      <MemoizedColouredComponent color="purple" text={purpleText} />
+      <ColouredComponent color="red" text={redText} />
+      <ColouredComponent color="purple" text={purpleText} />
     </Container>
   );
 };

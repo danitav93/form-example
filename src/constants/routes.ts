@@ -29,6 +29,7 @@ export enum ROUTES {
   FORM_STATE_REACT_HOOK_FORM_FIRST_FEATURES = '/formState/reactHookFormFirstFeatures',
   FORM_STATE_REACT_HOOK_FORM_PERFORMANCE = '/formState/reactHookFormFirstPerformance',
   FORM_STATE_REACT_HOOK_FORM_PERFORMANCE_WITH_VALUES = '/formState/reactHookFormFirstPerformanceWithValues',
+  FORM_STATE_NEXT_STEP = '/formState/nextStep',
   YUP_LANDING = '/yup/landing',
   YUP_TYPESCRIPT = '/yup/typescript',
   YUP_TYPING_SCHEMAS = '/yup/typing',
