@@ -33,6 +33,8 @@ export enum ROUTES {
   YUP_LANDING = '/yup/landing',
   YUP_TYPESCRIPT = '/yup/typescript',
   YUP_TYPING_SCHEMAS = '/yup/typing',
+  YUP_EXAMPLE = '/yup/example',
+  YUP_TRANSFORM_EXAMPLE = '/yup/transformExample',
 }
 
 export const ROUTES_MAP = Object.values(ROUTES);

@@ -104,6 +104,17 @@ input[type=text] {
   margin-top: 6px;
 }
 
+input[type=number] {
+  line-height: 32px;
+  width: 500px;
+  font-size: 30px;
+  color: #ffffff;
+  background: transparent;
+  padding: 4px;
+  display:block;
+  margin-top: 6px;
+}
+
 label {
   line-height: 32px;
   color: #d9d8d8;

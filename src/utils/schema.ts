@@ -1,12 +1,12 @@
-import { SchemaOf, object, array, NumberSchema, number } from 'yup';
+import { SchemaOf } from 'yup';
 import * as yup from 'yup';
 
-interface IntervalForm {
+export interface IntervalForm {
   start: string;
   end: string;
 }
 
-interface TimetableForm {
+export interface TimetableForm {
   monday: IntervalForm[];
   tuesday: IntervalForm[];
   wednesday: IntervalForm[];
@@ -16,12 +16,12 @@ interface TimetableForm {
   sunday: IntervalForm[];
 }
 
-interface Interval {
+export interface Interval {
   start: number;
   end: number;
 }
 
-interface Timetable {
+export interface Timetable {
   monday: Interval[];
   tuesday: Interval[];
   wednesday: Interval[];
@@ -31,32 +31,34 @@ interface Timetable {
   sunday: Interval[];
 }
 
-// .test((schema) => {
-//   const sortedIntervals = schema ? schema.sort((a, b) => (a.start ?? 0) - (b.start ?? 0)) : [];
-//   return true;
-// })
-
-const intervalItemSchema: SchemaOf<number> = yup
+export const intervalItemSchema: SchemaOf<number> = yup
   .number()
   .required()
-  .transform((value, originalValue) => {
-    return parseInt(originalValue.toString().split(':').join(''), 10);
-  });
+  .transform(function (value, originalValue) {
+    if (this!.isType(value)) return value;
+    if (!originalValue.match(/\d*:?\d*/)) {
+      return yup.ValidationError;
+    }
+    const [hh, mm] = originalValue.split(':').map((n: string) => parseInt(n, 10));
+    return hh * 60 + mm;
+  })
+  .min(0)
+  .max(1440, 'Valore massimo 24:00');
 
-const intervalSchema: SchemaOf<Interval> = object()
+export const intervalSchema: SchemaOf<Interval> = yup
+  .object()
   .shape({
     start: intervalItemSchema,
     end: intervalItemSchema,
-    dfsdf: number().default(10),
   })
   .strict()
-  .test((schema) => {
+  .test('start before end', 'Intervallo non valido', (schema) => {
     return (schema.start ?? 0) < (schema.end ?? 0);
   });
 
-const arrayOfIntervalsSchema: SchemaOf<Interval[]> = array().of(intervalSchema);
+export const arrayOfIntervalsSchema: SchemaOf<Interval[]> = yup.array().of(intervalSchema);
 
-const timetableSchema: SchemaOf<Timetable> = object().shape({
+export const timetableSchema: SchemaOf<Timetable> = yup.object().shape({
   monday: arrayOfIntervalsSchema,
   tuesday: arrayOfIntervalsSchema,
   wednesday: arrayOfIntervalsSchema,
@@ -66,20 +68,20 @@ const timetableSchema: SchemaOf<Timetable> = object().shape({
   sunday: arrayOfIntervalsSchema,
 });
 
-const timetable: TimetableForm = {
-  monday: [
-    {
-      start: '10:00',
-      end: '11:00',
-    },
-  ],
-  tuesday: [],
-  wednesday: [],
-  thursday: [],
-  friday: [],
-  saturday: [],
-  sunday: [],
-};
+// const timetable: TimetableForm = {
+//   monday: [
+//     {
+//       start: '10:00',
+//       end: '11:00',
+//     },
+//   ],
+//   tuesday: [],
+//   wednesday: [],
+//   thursday: [],
+//   friday: [],
+//   saturday: [],
+//   sunday: [],
+// };
 
 // export function testSchema() {
 //   console.log('Hello');
