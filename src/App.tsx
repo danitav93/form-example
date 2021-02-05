@@ -6,20 +6,25 @@ import { HomeScreen } from './navigation/HomeScreen';
 import { ROUTES } from './constants/routes';
 import { DesignSwitch } from './navigation/DesignPart/DesignSwitch';
 import { IntroSwitch } from './navigation/intro/IntroSwitch';
+import { FormStateSwitch } from './navigation/FormState/FormStateSwitch';
+import { ProgressBar } from './components/ui/ProgressBar';
 
-const MainContainer = styled.div`
+const AppContainer = styled.div`
   display: flex;
+  flex-direction: column;
+  justify-items: stretch;
   height: 100vh;
-  background: #8e0e00;
-  background: -webkit-linear-gradient(to bottom, #1f1c18, #8e0e00);
-  background: linear-gradient(to bottom, #1f1c18, #8e0e00);
 `;
 
 function App() {
   return (
-    <MainContainer>
-      <Router>
+    <Router>
+      <AppContainer>
+        <ProgressBar />
         <Switch>
+          <Route path="/formState">
+            <FormStateSwitch />
+          </Route>
           <Route path="/design">
             <DesignSwitch />
           </Route>
@@ -30,8 +35,8 @@ function App() {
             <HomeScreen />
           </Route>
         </Switch>
-      </Router>
-    </MainContainer>
+      </AppContainer>
+    </Router>
   );
 }
 

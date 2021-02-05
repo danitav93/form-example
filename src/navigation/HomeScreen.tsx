@@ -5,6 +5,9 @@ import { useSlide } from '../hooks/useSlide';
 
 const FormContainer = styled.form`
   flex: 1;
+  background: #8e0e00;
+  background: -webkit-linear-gradient(to bottom, #1f1c18, #8e0e00);
+  background: linear-gradient(to bottom, #1f1c18, #8e0e00);
   display: flex;
   flex-direction: column;
   justify-content: space-around;

@@ -1,6 +1,12 @@
 import { useHistory, useLocation } from 'react-router-dom';
 import { useCallback, useEffect } from 'react';
-import { getNextSlide, getPreviousSlide } from '../utils/routes';
+import {
+  getNextSlide,
+  getPreviousSlide,
+  getSlideByIndex,
+  getSlideIndex,
+  getTotalNumberOfSlides,
+} from '../utils/routes';
 import { ROUTES } from '../constants/routes';
 
 export const useSlide = (enableLeftAndRight?: boolean) => {
@@ -27,6 +33,17 @@ export const useSlide = (enableLeftAndRight?: boolean) => {
     [goToNextSlide, goToPreviousSlide],
   );
 
+  const completionPercentage =
+    ((getSlideIndex(currentPath as ROUTES) + 1) / getTotalNumberOfSlides()) * 100;
+
+  const navigateToSlideByPercentage = useCallback(
+    (percentage: number) => {
+      const currIndex = Math.round((percentage / 100) * getTotalNumberOfSlides());
+      history.push(getSlideByIndex(currIndex));
+    },
+    [history],
+  );
+
   useEffect(() => {
     if (enableLeftAndRight) {
       document.addEventListener('keydown', handleKey);
@@ -41,5 +58,7 @@ export const useSlide = (enableLeftAndRight?: boolean) => {
   return {
     goToNextSlide,
     goToPreviousSlide,
+    completionPercentage,
+    navigateToSlideByPercentage,
   };
 };

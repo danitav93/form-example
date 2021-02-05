@@ -1,0 +1,10 @@
+@keyframes g {
+    0% { background-color: #5225bd; }
+    50% { background-color: #607e9e; }
+    100% { background-color: #5225bd; }
+}
+
+@keyframes r {
+    from { transform: rotate(0deg); }
+    from { transform: rotate(360deg); }
+}

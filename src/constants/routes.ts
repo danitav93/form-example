@@ -13,6 +13,17 @@ export enum ROUTES {
   DESIGN_INLINE_VALIDATION = '/design/inlineValidation',
   DESIGN_SUBMIT_BUTTON = '/design/submitButton',
   DESIGN_BUTTONS_LEFT = '/design/buttonsLeft',
+  DESIGN_FINAL_HINTS = '/design/finalHints',
+  FORM_STATE_INTRO = '/formState/intro',
+  FORM_STATE_NEED_STATE = '/formState/needState',
+  FORM_STATE_PURE_HTML = '/formState/pureHTML',
+  FORM_STATE_REACT = '/formState/react',
+  FORM_STATE_UNCONTROLLED = '/formState/uncontrolled',
+  FORM_STATE_UNCONTROLLED_WITH_DEFAULT = '/formState/uncontrolledWithDefault',
+  FORM_STATE_CONTROLLED = '/formState/controlled',
+  FORM_STATE_WHEN_UNCONTROLLED = '/formState/whenUncontrolled',
+  FORM_STATE_WHEN_CONTROLLED = '/formState/whenControlled',
+  FORM_STATE_MANAGEMENT_LIBRARIES = '/formState/managementLibraries',
 }
 
 export const ROUTES_MAP = Object.values(ROUTES);

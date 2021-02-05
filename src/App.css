@@ -46,3 +46,67 @@ span {
   line-height: 1;
   text-align: center;
 }
+
+input[type=checkbox]
+{
+  /* Double-sized Checkboxes */
+  -ms-transform: scale(2); /* IE */
+  -moz-transform: scale(2); /* FF */
+  -webkit-transform: scale(2); /* Safari and Chrome */
+  -o-transform: scale(2); /* Opera */
+  transform: scale(2);
+  padding: 10px;
+  margin-left: 40px;
+}
+
+input[type=radio]
+{
+  /* Double-sized Checkboxes */
+  -ms-transform: scale(2); /* IE */
+  -moz-transform: scale(2); /* FF */
+  -webkit-transform: scale(2); /* Safari and Chrome */
+  -o-transform: scale(2); /* Opera */
+  transform: scale(2);
+  padding: 10px;
+  margin-left: 40px;
+}
+
+input[type=time]
+{
+  line-height: 32px;
+  /* Double-sized Checkboxes */
+  -ms-transform: scale(1.5); /* IE */
+  -moz-transform: scale(1.5); /* FF */
+  -webkit-transform: scale(1.5); /* Safari and Chrome */
+  -o-transform: scale(1.5); /* Opera */
+  transform: scale(1.5);
+  margin-left: 40px;
+}
+
+select {
+  height: 32px;
+  -ms-transform: scale(1.5); /* IE */
+  -moz-transform: scale(1.5); /* FF */
+  -webkit-transform: scale(1.5); /* Safari and Chrome */
+  -o-transform: scale(1.5); /* Opera */
+  transform: scale(1.5);
+  margin-left: 40px;
+}
+
+input[type=text] {
+  line-height: 32px;
+  width: 500px;
+  font-size: 30px;
+  color: #ffffff;
+  background: transparent;
+  padding: 4px;
+  display:block;
+  margin-top: 6px;
+}
+
+label {
+  line-height: 32px;
+  color: #d9d8d8;
+  font-size: 25px;
+  margin-bottom: 4px;
+}

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { SlideItem, SlideList, SlideTitle } from '../../components/ui/slide';
-import submitButton from '../../img/submitButton.png';
+import needState from '../../img/needState.png';
 import { useSlide } from '../../hooks/useSlide';
 
 const Container = styled.div`
@@ -17,19 +17,16 @@ const StyledSlideTitle = styled(SlideTitle)`
   grid-column: 1 / -1;
 `;
 
-export const DesignSubmitButtonScreen = () => {
+export const FormStateNeedStateScreen = () => {
   useSlide(true);
   return (
     <Container>
-      <StyledSlideTitle>Submit button</StyledSlideTitle>
+      <StyledSlideTitle>Form State</StyledSlideTitle>
       <SlideList>
-        <SlideItem>Disable the “Submit” button until validation is passed</SlideItem>
-        <SlideItem>
-          Provides a clear visual indicator to the user that their data entry is ready for
-          submission.
-        </SlideItem>
+        <SlideItem>We refer to the actual values of the form as Form State</SlideItem>
+        <SlideItem>Form state needs to be stored somewhere</SlideItem>
       </SlideList>
-      <img src={submitButton} style={{ width: '100%' }} alt="NotFound" />
+      <img src={needState} style={{ width: '100%' }} alt="NotFound" />
     </Container>
   );
 };
