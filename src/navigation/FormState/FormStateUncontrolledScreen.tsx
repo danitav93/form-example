@@ -43,7 +43,7 @@ export const FormStateUncontrolledScreen = () => {
       JSON.stringify({
         text: text.current?.value,
         checkBox: checkBox.current?.checked,
-        radio: radio.current?.checked,
+        radio: radio.current?.value,
         time: time.current?.value,
         select: select.current?.value,
       }),

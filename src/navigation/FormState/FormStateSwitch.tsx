@@ -12,6 +12,11 @@ import { FormStateControlledScreen } from './FormStateControlledScreen';
 import { WhenUncontrolledScreen } from './FormStateWhenUncontrolledScreen';
 import { WhenControlledScreen } from './FormStateWhenControlledScreen';
 import { FormStateLibrariesScreen } from './FormStateLibrariesScreen';
+import { ReactHookFormIntroScreen } from './FormStateReactHookFormIntro';
+import { ReactHookFormFirstExampleScreen } from './FormStateReactHookFormFirstExampleScreen';
+import { FormStateReactHookFormFirstFeaturesScreen } from './FormStateReactHookFormFirstFeaturesScreen';
+import { FormStateReactHookFormPerformanceScreen } from './FormStateReactHookFormPerformanceScreen';
+import { FormStateReactHookFormPerformanceWithValuesScreen } from './FormStateReactHookFormPerformanceWithValuesScreen';
 
 export const FormStateSwitch = () => {
   const MainContainer = styled.div`
@@ -53,6 +58,21 @@ export const FormStateSwitch = () => {
         </Route>
         <Route exact path={ROUTES.FORM_STATE_MANAGEMENT_LIBRARIES}>
           <FormStateLibrariesScreen />
+        </Route>
+        <Route exact path={ROUTES.FORM_STATE_REACT_HOOK_FORM_INTRO}>
+          <ReactHookFormIntroScreen />
+        </Route>
+        <Route exact path={ROUTES.FORM_STATE_REACT_HOOK_FORM_FIRST_EXAMPLE}>
+          <ReactHookFormFirstExampleScreen />
+        </Route>
+        <Route exact path={ROUTES.FORM_STATE_REACT_HOOK_FORM_FIRST_FEATURES}>
+          <FormStateReactHookFormFirstFeaturesScreen />
+        </Route>
+        <Route exact path={ROUTES.FORM_STATE_REACT_HOOK_FORM_PERFORMANCE}>
+          <FormStateReactHookFormPerformanceScreen />
+        </Route>
+        <Route exact path={ROUTES.FORM_STATE_REACT_HOOK_FORM_PERFORMANCE_WITH_VALUES}>
+          <FormStateReactHookFormPerformanceWithValuesScreen />
         </Route>
       </Switch>
     </MainContainer>
