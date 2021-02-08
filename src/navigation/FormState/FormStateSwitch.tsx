@@ -17,7 +17,8 @@ import { ReactHookFormFirstExampleScreen } from './FormStateReactHookFormFirstEx
 import { FormStateReactHookFormFirstFeaturesScreen } from './FormStateReactHookFormFirstFeaturesScreen';
 import { FormStateReactHookFormPerformanceScreen } from './FormStateReactHookFormPerformanceScreen';
 import { FormStateReactHookFormPerformanceWithValuesScreen } from './FormStateReactHookFormPerformanceWithValuesScreen';
-import { FormStateNextStepScreen } from './FormStateNextStepsScreen';
+import { FormStateReactHookFormUiLibraryScreen } from './FormStateReactHookFormUiLibraryScreen';
+import { FormStateReactHookControllerScreen } from './FormStateReactHookFormControllerScreen';
 
 export const FormStateSwitch = () => {
   const MainContainer = styled.div`
@@ -75,8 +76,11 @@ export const FormStateSwitch = () => {
         <Route exact path={ROUTES.FORM_STATE_REACT_HOOK_FORM_PERFORMANCE_WITH_VALUES}>
           <FormStateReactHookFormPerformanceWithValuesScreen />
         </Route>
-        <Route exact path={ROUTES.FORM_STATE_NEXT_STEP}>
-          <FormStateNextStepScreen />
+        <Route exact path={ROUTES.FORM_STATE_REACT_HOOK_FORM_UI_LIBRARY}>
+          <FormStateReactHookFormUiLibraryScreen />
+        </Route>
+        <Route exact path={ROUTES.FORM_STATE_REACT_HOOK_FORM_CONTROLLER}>
+          <FormStateReactHookControllerScreen />
         </Route>
       </Switch>
     </MainContainer>
