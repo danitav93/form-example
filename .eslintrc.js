@@ -40,5 +40,6 @@ module.exports = {
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "import/prefer-default-export": "off",
     "global-require": "off",
+    "react/prop-types": "off"
   },
 };

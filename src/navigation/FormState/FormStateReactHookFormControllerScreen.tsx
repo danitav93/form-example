@@ -6,6 +6,7 @@ import { SlideTitle } from '../../components/ui/slide';
 import { useSlide } from '../../hooks/useSlide';
 import { useMount } from '../../hooks/useMount';
 import { Plafond } from '../../components/controlled/Plafond';
+import { ControlledSelect } from '../../components/controlled/Select';
 
 const Container = styled.div`
   flex: 1;
@@ -28,7 +29,14 @@ const StyledTitle = styled(SlideTitle)`
 
 interface Form {
   plafond: string | null;
-  iceCreamType: 'chocolate' | 'strawberry' | 'vanilla';
+  iceCreamType:
+    | { value: 'chocolate'; label: 'Chocolate' }
+    | { value: 'strawberry'; label: 'Strawberry' }
+    | { value: 'vanilla'; label: 'Vanilla' };
+  company: {
+    id: string;
+    name: string;
+  };
 }
 
 export const FormStateReactHookControllerScreen = () => {
@@ -38,7 +46,11 @@ export const FormStateReactHookControllerScreen = () => {
   const { control } = useForm<Form>({
     defaultValues: {
       plafond: null,
-      iceCreamType: 'strawberry',
+      iceCreamType: { value: 'strawberry', label: 'Strawberry' },
+      company: {
+        id: 'id2',
+        name: 'name2',
+      },
     },
   });
   return (
@@ -56,6 +68,7 @@ export const FormStateReactHookControllerScreen = () => {
           ]}
           as={Select}
         />
+        <Controller name="company" render={ControlledSelect} control={control} />
       </FormContainer>
     </Container>
   );

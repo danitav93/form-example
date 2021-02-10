@@ -31,6 +31,8 @@ export enum ROUTES {
   FORM_STATE_REACT_HOOK_FORM_PERFORMANCE_WITH_VALUES = '/formState/reactHookFormFirstPerformanceWithValues',
   FORM_STATE_REACT_HOOK_FORM_UI_LIBRARY = '/formState/reactHookFormUiLibrary',
   FORM_STATE_REACT_HOOK_FORM_CONTROLLER = '/formState/controller',
+  FORM_STATE_REACT_HOOK_FORM_CONCLUSION = '/formState/conclusion',
+  STM_FLOW = '/stm/flow',
   YUP_LANDING = '/yup/landing',
   YUP_TYPESCRIPT = '/yup/typescript',
   YUP_TYPING_SCHEMAS = '/yup/typing',

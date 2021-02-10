@@ -9,6 +9,7 @@ import { IntroSwitch } from './navigation/intro/IntroSwitch';
 import { YupSwitch } from './navigation/Yup/YupSwitch';
 import { FormStateSwitch } from './navigation/FormState/FormStateSwitch';
 import { ProgressBar } from './components/ui/ProgressBar';
+import { StmFlowSwitch } from './navigation/StmFlow/StmFlowSwitch';
 
 const AppContainer = styled.div`
   display: flex;
@@ -25,6 +26,9 @@ function App() {
         <Switch>
           <Route path="/yup">
             <YupSwitch />
+          </Route>
+          <Route path="/stm">
+            <StmFlowSwitch />
           </Route>
           <Route path="/formState">
             <FormStateSwitch />
