@@ -1,0 +1,47 @@
+import React, { useCallback } from 'react';
+import styled from 'styled-components';
+import PropTypes, { InferProps } from 'prop-types';
+import { useMount } from '../../hooks/useMount';
+
+const Container = styled.div`
+  display: flex;
+  gap: 50px;
+`;
+
+export function IntervalInput({ onChange, value }: InferProps<typeof IntervalInput.propTypes>) {
+  useMount('ControlledInput');
+  const onChecked = useCallback(() => {
+    if (value === null) {
+      onChange([]);
+    } else {
+      onChange([]);
+    }
+  }, [onChange, value]);
+  return (
+    <Container>
+      <label htmlFor="plafond">
+        Plafond:
+        <input
+          type="text"
+          id="plafond"
+          value={value ?? []}
+          onChange={onChange}
+          disabled={value === null}
+        />
+      </label>
+      <label htmlFor="unlimited">
+        Illimitato
+        <input type="checkbox" id="unlimited" checked={value === null} onChange={onChecked} />
+      </label>
+    </Container>
+  );
+}
+
+IntervalInput.propTypes = {
+  onChange: PropTypes.func.isRequired,
+  value: PropTypes.arrayOf(PropTypes.number),
+};
+
+IntervalInput.defaultProps = {
+  value: [0, 1440],
+};

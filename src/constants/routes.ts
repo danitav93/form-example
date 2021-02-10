@@ -38,6 +38,8 @@ export enum ROUTES {
   YUP_TYPING_SCHEMAS = '/yup/typing',
   YUP_EXAMPLE = '/yup/example',
   YUP_TRANSFORM_EXAMPLE = '/yup/transformExample',
+  YUP_COMPLEX_EXAMPLE = '/yup/complexExample',
+  YUP_VERY_COMPLEX_EXAMPLE = '/yup/veryComplexExample',
 }
 
 export const ROUTES_MAP = Object.values(ROUTES);

@@ -7,6 +7,8 @@ import { YupTypescriptScreen } from './YupTypescriptScreen';
 import { YupTypingSchemaScreen } from './YupTypingSchemaScreen';
 import { YupExampleScreen } from './YupExampleScreen';
 import { YupTransformExampleScreen } from './YupTransformExampleScreen';
+import { YupComplexExampleScreen } from "./YupComplexExampleScreen";
+import { YupVeryComplexExampleScreen } from "./YupVeryComplexExampleScreen";
 
 const MainContainer = styled.div`
   flex: 1;
@@ -20,6 +22,12 @@ export const YupSwitch = () => {
   return (
     <MainContainer>
       <Switch>
+        <Route exact path={ROUTES.YUP_VERY_COMPLEX_EXAMPLE}>
+          <YupVeryComplexExampleScreen />
+        </Route>
+        <Route exact path={ROUTES.YUP_COMPLEX_EXAMPLE}>
+          <YupComplexExampleScreen />
+        </Route>
         <Route exact path={ROUTES.YUP_TRANSFORM_EXAMPLE}>
           <YupTransformExampleScreen />
         </Route>

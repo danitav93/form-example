@@ -5,7 +5,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as events from 'events';
 import { Slide, SlideTitle } from '../../components/ui/slide';
 import { useSlide } from '../../hooks/useSlide';
-import { intervalSchema } from '../../utils/schema';
+import { intervalSchema, timetableSchema } from "../../utils/schema";
 
 const Form = styled.form`
   display: flex;
@@ -19,17 +19,13 @@ const Error = styled.p`
 export const YupTransformExampleScreen = () => {
   useSlide();
 
-  const schema = intervalSchema;
-
-  const { register, handleSubmit, watch, errors, formState } = useForm({
+  const { register, handleSubmit, formState } = useForm({
     mode: 'onBlur',
-    resolver: yupResolver(schema, { strict: false, stripUnknown: true }),
+    resolver: yupResolver(intervalSchema),
   });
 
   const onSubmit = (data: events) => console.log('Submit data:', data);
 
-  console.log('Watch', watch());
-  console.log('Errors', errors);
   console.log('Form state', formState);
 
   return (
@@ -39,17 +35,17 @@ export const YupTransformExampleScreen = () => {
         <label htmlFor="start">
           Start
           <input type="text" name="start" ref={register} id="start" />
-          <Error>{errors.start && errors.start.message}</Error>
+          <Error>{formState.errors.start?.message ?? ''}</Error>
         </label>
         <label htmlFor="end">
           End
           <input type="text" name="end" ref={register} id="end" />
-          <Error>{errors.end && errors.end.message}</Error>
+          <Error>{formState.errors.end?.message ?? ''}</Error>
         </label>
         <button type="submit" className="button" disabled={!formState.isValid}>
           Submit
         </button>
-        <Error>{errors.message && errors.message}</Error>
+        <Error>{formState.errors?.message ?? ''}</Error>
       </Form>
     </Slide>
   );

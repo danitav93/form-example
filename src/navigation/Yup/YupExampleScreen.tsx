@@ -6,6 +6,7 @@ import { SchemaOf, object, string, number } from 'yup';
 import * as events from 'events';
 import { Slide, SlideTitle } from '../../components/ui/slide';
 import { useSlide } from '../../hooks/useSlide';
+import { useMount } from '../../hooks/useMount';
 
 interface Data {
   username: string;
@@ -23,22 +24,21 @@ const Error = styled.p`
 `;
 
 export const YupExampleScreen = () => {
+  useMount('Example');
   useSlide();
 
   const schema: SchemaOf<Data> = object({
     username: string().required('Il campo e obbligatorio').min(1, 'asdjfklasjdf'),
-    age: number().required(),
+    age: number().typeError('Il campo deve essere un numero').required(),
     email: string().required('Il campo e obbligatorio').email('Email non valida'),
   });
 
-  const { register, handleSubmit, watch, errors, formState } = useForm({
+  const { register, handleSubmit, formState } = useForm({
     mode: 'onBlur',
     resolver: yupResolver(schema),
   });
 
   const onSubmit = (data: events) => console.log('Submit data:', data);
-
-  console.log('Watch', watch());
 
   return (
     <Slide>
@@ -47,17 +47,17 @@ export const YupExampleScreen = () => {
         <label htmlFor="username">
           Username
           <input type="text" name="username" ref={register} id="username" />
-          <Error>{errors.username && errors.username.message}</Error>
+          <Error>{formState.errors.username?.message ?? ''}</Error>
         </label>
         <label htmlFor="age">
           Age
           <input type="number" name="age" ref={register} id="age" />
-          <Error>{errors.age && errors.age.message}</Error>
+          <Error>{formState.errors.age?.message ?? ''}</Error>
         </label>
         <label htmlFor="email">
           Email
           <input type="text" name="email" ref={register} id="email" />
-          <Error>{errors.email && errors.email.message}</Error>
+          <Error>{formState.errors.email?.message ?? ''}</Error>
         </label>
         <button type="submit" className="button" disabled={!formState.isValid}>
           Submit
